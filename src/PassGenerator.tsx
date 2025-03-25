@@ -10,7 +10,7 @@ const PassGenerator: React.FC = () => {
   const [userId, setUserId] = useState<string>("");
   const [passDetails, setPassDetails] = useState<string>("");
   const [saved, setSaved] = useState(false);
-  const [showPass, setShowPass] = useState(false); // NEW: Controls when pass appears
+  const [showPass, setShowPass] = useState(false);
 
   const handleDownload = async () => {
     if (!passRef.current) return;
@@ -51,11 +51,10 @@ const PassGenerator: React.FC = () => {
         />
         <br />
         
-        {/* Generate Button - Shows Pass on Click */}
         <motion.button
           whileHover={{ scale: 1.1 }}
           onClick={() => setShowPass(true)}
-          disabled={!userId || !passDetails} // Disabled if fields are empty
+          disabled={!userId || !passDetails}
         >
           Generate Pass
         </motion.button>
@@ -82,7 +81,6 @@ const PassGenerator: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Buttons moved outside pass-card for better layout */}
           <div className="button-container">
             <motion.button whileHover={{ scale: 1.1 }} onClick={handleDownload}>
               Download Pass
